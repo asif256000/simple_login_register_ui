@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'bootstrap/base.html' %}
+<head>
+    <title>{% block title %}Welcome {{user}}{% endblock %}</title>
+    {% block head %}
+    <link rel="shortcut icon" href="{{url_for('static', filename='images/icon.ico')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+<div class="home full-home">
+    <h1 style="color: whitesmoke">Welcome {{user}}</h1><br>
+    <div class="buttons-holder">
+        <div class="buttons">
+            <button type="button" class="toggle-button" onclick="window.location.href='{{url_for('homepage_view')}}'">Logout</button>
+        </div>
+        <div class="buttons">
+            <button type="button" class="toggle-button" onclick="window.location.href='{{ url_for ( 'user_del' , user = user ) }}'">Delete User</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

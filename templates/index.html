@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'bootstrap/base.html' %}
+<head>
+    <title>{% block title %}Home{% endblock %}</title>
+    {% block head %}
+    <link rel="shortcut icon" href="{{url_for('static', filename='images/icon.ico')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+<div class="home full-home">
+    <div class="buttons-holder">
+        <div class="buttons">
+            <button type="button" class="toggle-button" onclick="window.location.href='{{ url_for( 'view_login_regn_page', go_to='login' ) }}'">Login</button>
+            <button type="button" class="toggle-button" onclick="window.location.href='{{ url_for( 'view_login_regn_page', go_to='regn' ) }}'">Register</button>
+        </div>
+    </div>
+</div>
+<!--<script src="{{url_for('static', filename='js/main.js')}}"></script>-->
+{% if display_msg %}
+<div class="modal" tabindex="-1" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Message...</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>{{ display_msg }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--type="text/javascript"-->
+<!--<script src="{{url_for('static', filename='js/main.js')}}" type="module">-->
+<script>
+    $(window).on('load', function() {
+        $('#myModal').modal('show');
+    });
+    // var myModal = new bootstrap.Modal(document.getElementById("myModal"), {focus:true});
+    // window.onload = function () {
+    //     console.log('Modal Function Entered')
+    //     myModal.show();
+    // };
+</script>
+<!--<script>-->
+<!--    alert('{{ alert_msg }}')-->
+<!--</script>-->
+{% endif %}
+{% endblock %}
+</body>
+</html>

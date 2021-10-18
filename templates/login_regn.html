@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'bootstrap/base.html' %}
+<head>
+    <title>{% block title %}Login and Registration{% endblock %}</title>
+    {% block head %}
+    <link rel="shortcut icon" href="{{url_for('static', filename='images/icon.ico')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+<div class="home">
+    <div class="formbox">
+        <div class="buttons">
+            <div id="btn"></div>
+            <button type="button" class="toggle-button" onclick="login_shadow_shift()">Login</button>
+            <button type="button" class="toggle-button" onclick="register_shadow_shift()">Register</button>
+        </div>
+        <div class="social-icons">
+            <img src="{{url_for('static', filename='images/facebook.png')}}" alt="facebook">
+            <img src="{{url_for('static', filename='images/twitter.png')}}" alt="twitter">
+            <img src="{{url_for('static', filename='images/google.png')}}" alt="google">
+        </div>
+        <form id="login" class="input-group" action="{{url_for('user_logging_in')}}" method="post" autocomplete="off">
+            <input type="text" class="input-field" placeholder="User Id" name="username" required>
+            <input type="password" class="input-field password-input" placeholder="Enter Password" name="password" id="passwordLogin" required>
+            <i class="bi-eye bi-eye-slash" id="togglePasswordLogin"></i>
+            <input type="checkbox" class="check-box" name="remember" value="remember"><label class="check-label">Remember Password</label>
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+        <form id="register" class="input-group" action="{{url_for('user_regn')}}" method="post" autocomplete="off">
+            <input type="text" class="input-field" placeholder="User Id" name="username" required>
+            <input type="email" class="input-field" placeholder="Email Id" name="email_id" required>
+            <input type="password" class="input-field password-input" placeholder="Enter Password" name="password" id="passwordRegn" required>
+            <i class="bi-eye bi-eye-slash" id="togglePasswordRegn"></i>
+            <input type="password" class="input-field password-input" placeholder="Confirm Password" name="confirm_password" required>
+            <input type="checkbox" class="check-box" name="agree-terms" value="agree-terms"><label class="check-label">I agree to the terms & conditions</label>
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    </div>
+</div>
+<script src="{{url_for('static', filename='js/loginPage.js')}}"></script>
+{% if go_to_page=='regn' %}
+<script>
+    window.onload = function() {
+        register_shadow_shift();
+    };
+</script>
+{% elif go_to_page=='login' %}
+<script>
+    window.onload = function() {
+        login_shadow_shift();
+    };
+</script>
+{% endif %}
+{% if alert_msg %}
+<div class="modal" tabindex="-1" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Alert!!!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>{{ alert_msg}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--type="text/javascript"-->
+<!--<script src="{{url_for('static', filename='js/main.js')}}" type="module">-->
+<script>
+    $(window).on('load', function() {
+        $('#myModal').modal('show');
+    });
+    // var myModal = new bootstrap.Modal(document.getElementById("myModal"), {focus:true});
+    // window.onload = function () {
+    //     console.log('Modal Function Entered')
+    //     myModal.show();
+    // };
+</script>
+<!--<script>-->
+<!--    alert('{{ alert_msg }}')-->
+<!--</script>-->
+{% endif %}
+{% endblock %}
+</body>
+</html>

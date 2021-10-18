@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'bootstrap/base.html' %}
+<head>
+    <title>{% block title %}{{username}} deleted{% endblock %}</title>
+    {% block head %}
+    <link rel="shortcut icon" href="{{url_for('static', filename='images/icon.ico')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+<div class="home full-home">
+    <h1 style="color: whitesmoke">User {{username}} has been deleted successfully.</h1><br>
+    <h6 style="color: whitesmoke">You will be automatically redirected to homepage...</h6>
+        <div class="buttons">
+            <button type="button" class="toggle-button" onclick="window.location.href='{{url_for('homepage_view')}}'">Go to Homepage</button>
+        </div>
+</div>
+{% set msg_str = "User " ~ username ~ " has been successfully deleted." %}
+<script>
+    window.setTimeout(function() {
+        window.location.href = '{{url_for('homepage_view', msg_to_display=msg_str)}}';
+    }, 5000);
+
+</script>
+{% endblock %}
+</body>
+</html>

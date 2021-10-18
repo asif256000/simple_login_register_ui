@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.home {
+    height: auto;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 1.0),
+    rgba(0, 0, 0, 0.5)), url("../images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+.full-home {
+    height: 100vh;
+    text-align: center;
+}
+
+.formbox {
+    width: 380px;
+    height: 550px;
+    position: relative;
+    margin: 6% auto;
+    background: gray;
+    padding: 5px;
+    overflow: hidden;
+}
+
+::placeholder {
+    color: 	#202020;
+}
+
+#login button {
+    margin-left: auto;
+}
+
+#register button {
+    margin-left: auto;
+}
+
+.buttons {
+    width: 210px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px lightgray;
+    border-radius: 30px;
+}
+
+.buttons-holder {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.toggle-button {
+    font-size: 13px;
+    color: whitesmoke;
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #000d1a, #00111a);
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+.social-icons {
+    margin: 30px auto;
+    text-align: center;
+}
+
+.social-icons img {
+    width: 30px;
+    margin: 0 12px;
+    box-shadow: 0 0 20px 0 gray;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.input-group {
+    top: 180px;
+    position: absolute;
+    width: 320px;
+    transition: 0.5s;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 1px solid black;
+    outline: none;
+    background: transparent;
+}
+
+.submit-btn {
+    color: whitesmoke;
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, #000d1a, #00111a);
+    border: 0;
+    outline: none;
+    border-radius: 30px !important;
+}
+
+.check-box, .check-label {
+    margin: 30px 10px 30px 0;
+    color: black;
+}
+
+.check-box:checked {
+    background: rgba(40,40,40,0.7);
+}
+
+/*label {*/
+/*    color: rgba(0, 0, 0, 0.1);*/
+/*    font-size: 12px;*/
+/*}*/
+
+#login {
+    left: 30px;
+}
+
+#login i, #register i {
+    margin: 13px 0 5px -30px;
+    cursor: pointer;
+}
+#register {
+    left: 430px;
+}
+
+.nav, .nav-pills {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1.0));
+}
